@@ -3,11 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "postinstall": "ng build  --aot --prod"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
@@ -28,16 +27,11 @@
     "bootstrap": "^4.5.0",
     "datatables.net": "^1.10.25",
     "datatables.net-dt": "^1.1.0",
-    "express": "^4.17.1",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
-  },
-  "engines": {
-    "node": "14.17.3",
-    "npm": "6.14.13"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.1.3",
