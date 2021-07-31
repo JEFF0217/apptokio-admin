@@ -1,0 +1,47 @@
+
+<div class="row mt-5">
+    <div class="col">
+      <button type="button" class="btn btn-primary float-right mb-3" >Agregar Medalla</button>
+      <table class="table  table-bordered  table-dark">
+        <thead>
+          <tr>
+           
+            <th scope="col">Año</th>
+            <th scope="col">Deporte</th>
+            <th scope="col">Evento</th>
+            <th scope="col">Pais</th>
+            <th scope="col">Medalla</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+       
+          </tr>
+        </thead>
+        <tbody>
+        
+          <tr *ngFor="let medalla of medallas">
+      
+            <!--th scope="row"> {{i+1}}</th-->
+            <td>{{medalla.ano}}</td>
+            <td>{{medalla.deporteNombre}}</td>
+            <td>{{medalla.eventoNombre}}</td>
+            <td>{{medalla.paisNombre}}</td>
+            <td>{{medalla.tipo}}</td>
+            <td>{{medalla.cantidad}}</td>
+
+            
+            <td>
+              <button  class="btn btn-primary" >Actualizar</button>
+            </td>
+            <td>
+              <button class="btn btn-danger" (click)="delete(medalla.id)">Borrar</button>
+            </td>
+          </tr>
+  
+        </tbody>
+      </table>
+     <!-- <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>-->
+    </div>
+  </div>
+  <!--app-modal></app-modal-->
+
