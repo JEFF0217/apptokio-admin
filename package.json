@@ -24,7 +24,7 @@
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "angular-datatables": "^12.0.0",
     "boostrap": "^2.0.0",
-    "bootstrap": "^4.5.0",
+    "bootstrap": "^4.6.0",
     "datatables.net": "^1.10.25",
     "datatables.net-dt": "^1.1.0",
     "jquery": "^3.6.0",

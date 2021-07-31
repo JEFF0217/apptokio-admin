@@ -1,0 +1,60 @@
+<!-- Modal -->
+
+<div id="modalMedallas" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{this.api.selectedMedalla.id==0? 'Nueva medalla' : 'Update Medalla'}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="form-Medalla" #formMedalla="ngForm" (ngSubmit)="onSaveMedalla(formMedalla)">
+            <input type="hidden" id="medallaId" name="medallaId" class="form-control" [(ngModel)]="this.api.selectedMedalla.id">
+            <div class="form-group">
+    
+                <label for="ano"></label>
+              <select  name="ano" id="ano" class="form-control"  [(ngModel)]="this.api.selectedMedalla.ano">
+               
+                  <option value="2016">2016</option>
+                <option value="2020" >2020</option>
+                <option value="2024">2024</option>
+
+            </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="tipo">Tipo</label>
+                <select name="tipo" id="tipo" class="form-control" [(ngModel)]="this.api.selectedMedalla.tipo">
+                  <option value="Oro">Oro</option>
+                  <option value="Plata">Plata</option>
+                <option value="Plata">Bronce</option>
+                </select>
+  
+              </div>
+              <div class="form-group col-md-6">
+                <label for="pais">Pais</label>
+               <select name="paisId" id="paisId" class="form-control" [(ngModel)]="this.api.selectedMedalla.paisId">
+                <option *ngFor="let pais of paises " value="{{pais.id}}" selected  >{{pais.nombre}}</option>
+              </select>
+              </div>
+            </div>  
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="eventoId">Eventoid</label>
+
+                <select name ="eventoId" id="eventoId" class="form-control" [(ngModel)]="this.api.selectedMedalla.eventoId">
+                  <option *ngFor="let evento of eventos " value="{{evento.id}}" selected  >{{evento.nombre}}</option>
+                </select>
+            
+              </div>
+              </div>
+            
+
+            <button type="submit" class="btn btn-primary float-right">Save Medalla</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

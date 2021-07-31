@@ -1,11 +1,14 @@
 
 <div class="row mt-5">
     <div class="col">
-      <button type="button" class="btn btn-primary float-right mb-3" >Agregar Medalla</button>
-      <table class="table  table-bordered  table-dark">
+      <button type="button" class="btn btn-primary float-right mb-3" data-toggle="modal" 
+      data-target="#modalMedallas"(click)="resetForm()">Agregar Medalla</button>
+      
+      <table   class="table  table-bordered  table-dark">
         <thead>
           <tr>
-           
+
+            <th scope="col">#</th>
             <th scope="col">Año</th>
             <th scope="col">Deporte</th>
             <th scope="col">Evento</th>
@@ -19,9 +22,9 @@
         </thead>
         <tbody>
         
-          <tr *ngFor="let medalla of medallas">
+          <tr *ngFor="let medalla of medallas; index as i">
       
-            <!--th scope="row"> {{i+1}}</th-->
+            <th scope="row"> {{i+1}}</th>
             <td>{{medalla.ano}}</td>
             <td>{{medalla.deporteNombre}}</td>
             <td>{{medalla.eventoNombre}}</td>
@@ -31,7 +34,7 @@
 
             
             <td>
-              <button  class="btn btn-primary" >Actualizar</button>
+              <button  class="btn btn-primary" (click)="onPreUpdateMedalla(medalla)" data-toggle="modal" data-target="#modalMedallas" >Actualizar</button>
             </td>
             <td>
               <button class="btn btn-danger" (click)="delete(medalla.id)">Borrar</button>
@@ -43,5 +46,5 @@
      <!-- <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>-->
     </div>
   </div>
-  <!--app-modal></app-modal-->
+  <app-modal></app-modal>
 

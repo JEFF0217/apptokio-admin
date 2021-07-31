@@ -8,6 +8,7 @@ import { MedallaInterface } from '../modelos/medalla-interface';
 import { PaisInterface } from '../modelos/pais-interface';
 import { EventoInterface } from '../modelos/evento-interface';
 import { DeporteInterface } from '../modelos/deporte-interface';
+import { pairs } from 'rxjs';
 
 
 @Injectable({
@@ -22,9 +23,30 @@ export class ApiService {
 
   medalla?: Observable<any>;
 
+  public selectedMedalla: MedallaInterface = {
+    id:0,
+    ano: '',
+    tipo: '',
+    paisId: 0,
+    eventoId: 0,
+    
+  };
+
   getAllMedallas():Observable<MedallaInterface[]>{
    let direccion=this.url_api+'medallas';
    return this.http.get<MedallaInterface[]>(direccion);
+  }
+
+
+  getAllPaises():Observable<PaisInterface[]>{
+   let direccion=this.url_api+'paises';
+   return this.http.get<PaisInterface[]>(direccion);
+  }
+
+  
+  getAllEventos():Observable<EventoInterface[]>{
+   let direccion=this.url_api+'eventos';
+   return this.http.get<EventoInterface[]>(direccion);
   }
 
 
@@ -48,17 +70,22 @@ export class ApiService {
    }
 
 
-/*
-   updateMedalla(medalla):Observable<MedallaInterface> {
+
+
+
+   updateMedalla(medalla: MedallaInterface):Observable<MedallaInterface> {
  
-    const medallaId = medalla.medallaId;
+ 
+    const medallaId = medalla.id;
     let direccion=this.url_api+ `medallas/${medallaId}`;
   
     return this.http
-      .put<MedallaInterface>(direccion, medalla)
-      .pipe(map(data => data));
+      .put<MedallaInterface>(direccion, {ano:medalla.ano,
+        tipo:medalla.tipo,
+        paisId:medalla.paisId,
+        eventoId:medalla.eventoId});
   }
-*/
+
 
 
   deletemMedalla(id: number) {
@@ -68,4 +95,20 @@ export class ApiService {
       .delete<MedallaInterface>(direccion)
       .pipe(map(data => data));
   }
+
+
+  
+  saveMedalla(medalla: MedallaInterface) :Observable<MedallaInterface>{
+    let direccion=this.url_api+ `medallas`;
+   
+    return this.http
+      .post<MedallaInterface>(direccion, {
+        ano:medalla.ano,
+        tipo:medalla.tipo,
+        paisId:medalla.paisId,
+        eventoId:medalla.eventoId
+      });
+  }
+
+
 }

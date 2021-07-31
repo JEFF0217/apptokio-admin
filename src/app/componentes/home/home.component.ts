@@ -8,6 +8,8 @@ import { MedallaInterface } from 'src/app/modelos/medalla-interface';
 import { PaisInterface } from 'src/app/modelos/pais-interface';
 
 import { ApiService } from 'src/app/servicios/api.service';
+import { NgForm } from '@angular/forms';
+
 
 
 
@@ -102,6 +104,10 @@ delete(id: number){
 
 }
 
+onPreUpdateMedalla(medalla: MedallaInterface): void {
+  this.api.selectedMedalla = Object.assign({}, medalla);
+}
+
 
 
 getEvento(medalla: MedallaInterface){
@@ -140,6 +146,21 @@ getDeporte(medalla: MedallaInterface){
 trackById(index: number, medalla:any){
   return medalla.id;
 }
+
+
+resetForm(medallaForm?: NgForm): void {
+  this.api.selectedMedalla = {
+    id:0,
+    ano: '2020',
+    tipo: '',
+    paisId: 0,
+    eventoId: 0,
+  };
+}
+
+
+
+
 
 
 
