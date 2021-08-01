@@ -21,6 +21,9 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalComponent } from './componentes/modal/modal.component';
 import { FormsModule } from '@angular/forms';
 
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +39,9 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     NgbModule,
     NoopAnimationsModule,
-    DataTablesModule
+    DataTablesModule,
+    NgxSpinnerModule,
+    NgxPaginationModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

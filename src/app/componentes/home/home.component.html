@@ -22,7 +22,7 @@
         </thead>
         <tbody>
         
-          <tr *ngFor="let medalla of medallas; index as i">
+          <tr *ngFor="let medalla of medallas| paginate: {itemsPerPage: 9, currentPage: pageActual}; index as i">
       
             <th scope="row"> {{i+1}}</th>
             <td>{{medalla.ano}}</td>
@@ -43,7 +43,7 @@
   
         </tbody>
       </table>
-     <!-- <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>-->
+     <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
     </div>
   </div>
   <app-modal></app-modal>

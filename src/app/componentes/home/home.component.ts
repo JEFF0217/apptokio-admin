@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
 
     medallas : MedallaInterface[]=[];
 
- 
+    pageActual: number = 1;
 
 
    editarPais = new FormGroup({
